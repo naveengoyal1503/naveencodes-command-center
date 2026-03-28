@@ -1,13 +1,14 @@
 {
   "name": "naveencodes-ai-agent",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "type": "module",
   "description": "Production-ready AI-powered browser automation and developer agent system.",
-  "workspaces": [
-    "apps/*"
-  ],
+  "bin": {
+    "naveencodes-ai-agent": "./bin/cli.js"
+  },
   "scripts": {
+    "cli": "node ./bin/cli.js",
     "dev": "tsx watch apps/server/src/index.ts",
     "start": "tsx apps/server/src/index.ts",
     "build": "tsc --project tsconfig.json",
@@ -23,6 +24,7 @@
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
+    "tsx": "^4.21.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -30,7 +32,6 @@
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^22.19.15",
-    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

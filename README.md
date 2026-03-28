@@ -12,6 +12,28 @@ Production-ready repository for an AI-powered browser automation and developer a
 - Chrome extension surfaces for Gemini, OpenAI, Claude, and a universal client
 - Compatibility-preserving API evolution with `/api/browser` and `/api/actions`
 
+## CLI Quick Start
+
+Run the full system with a single command:
+
+```bash
+npx naveencodes-ai-agent
+```
+
+Optional visible Chrome mode:
+
+```bash
+npx naveencodes-ai-agent --visible
+```
+
+The CLI will:
+
+- install dependencies if `node_modules` is missing
+- start or reuse the backend server
+- start or reuse a Chrome session with remote debugging on port `9222`
+- connect to Chrome via CDP
+- print `AI Agent Ready 🚀` and `System Ready`
+
 ## Features
 
 - Node.js + Express API server with `/api/auth`, `/api/chat`, `/api/analyze`, `/api/actions`, `/api/projects`, and compatibility support for `/api/browser`
