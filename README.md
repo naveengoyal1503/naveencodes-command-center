@@ -1,8 +1,16 @@
 # NaveenCodes AI Agent
 
-![Banner Placeholder](docs/banner-placeholder.svg)
+![NaveenCodes AI Agent Banner](docs/banner.png)
 
 Production-ready repository for an AI-powered browser automation and developer agent system. NaveenCodes AI Agent combines a secured Node.js backend, a modular Chrome DevTools Protocol browser engine, an intelligence layer for autonomous routing, BYOK AI integrations for OpenAI, Gemini, and Claude, and a set of Manifest v3 browser extensions that can send page-aware commands directly to the backend.
+
+## At a Glance
+
+- Autonomous AI developer agent runtime with provider-aware routing
+- OpenAI, Gemini, and Claude support with encrypted BYOK storage
+- CDP browser automation with modular action handlers and extraction support
+- Chrome extension surfaces for Gemini, OpenAI, Claude, and a universal client
+- Compatibility-preserving API evolution with `/api/browser` and `/api/actions`
 
 ## Features
 
@@ -166,9 +174,9 @@ curl -X POST http://127.0.0.1:4000/api/analyze \
 
 ## Screenshots
 
-- `docs/screenshot-dashboard-placeholder.svg`
-- `docs/screenshot-extension-placeholder.svg`
-- `docs/screenshot-browser-run-placeholder.svg`
+- Dashboard placeholder: `docs/screenshot-dashboard-placeholder.svg`
+- Extension placeholder: `docs/screenshot-extension-placeholder.svg`
+- Browser run placeholder: `docs/screenshot-browser-run-placeholder.svg`
 
 ## Security Notes
 
