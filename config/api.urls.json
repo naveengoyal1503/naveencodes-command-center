@@ -1,0 +1,11 @@
+{
+  "local": {
+    "server": "http://127.0.0.1:4000",
+    "auth": "http://127.0.0.1:4000/api/auth",
+    "chat": "http://127.0.0.1:4000/api/chat",
+    "analyze": "http://127.0.0.1:4000/api/analyze",
+    "actions": "http://127.0.0.1:4000/api/actions",
+    "projects": "http://127.0.0.1:4000/api/projects",
+    "browser": "http://127.0.0.1:4000/api/browser"
+  }
+}

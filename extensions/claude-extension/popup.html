@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claude Extension</title>
+    <style>
+      body { margin: 0; width: 360px; font-family: Arial, sans-serif; background: #f7f2ea; color: #231c14; }
+      .shell { padding: 16px; }
+      input, textarea, button { width: 100%; box-sizing: border-box; border-radius: 12px; padding: 10px 12px; margin-bottom: 10px; font: inherit; border: 1px solid #d8c8b7; }
+      button { border: none; background: #bf582a; color: white; cursor: pointer; }
+      textarea { min-height: 88px; resize: vertical; }
+      pre { background: rgba(255,255,255,0.75); border: 1px solid #e5d9cc; border-radius: 12px; padding: 12px; white-space: pre-wrap; max-height: 220px; overflow: auto; }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <input id="backendUrl" value="http://127.0.0.1:4000" />
+      <input id="token" placeholder="JWT token" />
+      <textarea id="command" placeholder="Analyze this page with Claude"></textarea>
+      <button id="send">Send Command</button>
+      <pre id="result">Idle.</pre>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

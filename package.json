@@ -1,0 +1,36 @@
+{
+  "name": "naveencodes-ai-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Production-ready AI-powered browser automation and developer agent system.",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "tsx watch apps/server/src/index.ts",
+    "start": "tsx apps/server/src/index.ts",
+    "build": "tsc --project tsconfig.json",
+    "test": "tsx scripts/smoke-test.ts",
+    "browser:doctor": "tsx scripts/browser-doctor.ts"
+  },
+  "dependencies": {
+    "chrome-launcher": "^1.1.2",
+    "chrome-remote-interface": "^0.33.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.19.15",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

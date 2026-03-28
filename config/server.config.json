@@ -1,0 +1,22 @@
+{
+  "name": "NaveenCodes AI Agent",
+  "host": "127.0.0.1",
+  "port": 4000,
+  "security": {
+    "jwtExpiresIn": "12h",
+    "rateLimitWindowMs": 60000,
+    "rateLimitMax": 120
+  },
+  "browser": {
+    "headless": true,
+    "remoteDebuggingPort": 9222
+  },
+  "providers": {
+    "default": "openai",
+    "supported": [
+      "openai",
+      "gemini",
+      "claude"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@naveencodes/browser-engine",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts"
+}

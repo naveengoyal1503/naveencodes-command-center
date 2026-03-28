@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaveenCodes AI Agent</title>
+    <style>
+      body {
+        margin: 0;
+        width: 360px;
+        font-family: Arial, sans-serif;
+        background: #f7f2ea;
+        color: #231c14;
+      }
+      .shell {
+        padding: 16px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+      input, textarea, button {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 12px;
+        border: 1px solid #d8c8b7;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        font: inherit;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 88px;
+      }
+      button {
+        border: none;
+        background: #bf582a;
+        color: white;
+        cursor: pointer;
+      }
+      pre {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid #e5d9cc;
+        border-radius: 12px;
+        padding: 12px;
+        max-height: 220px;
+        overflow: auto;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>NaveenCodes AI Agent</h1>
+      <input id="backendUrl" value="http://127.0.0.1:4000" />
+      <input id="token" placeholder="JWT token" />
+      <textarea id="command" placeholder="Analyze this page and suggest fixes"></textarea>
+      <button id="send">Send Command</button>
+      <pre id="result">Idle.</pre>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

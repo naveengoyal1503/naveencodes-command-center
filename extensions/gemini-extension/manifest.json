@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "NaveenCodes Gemini Extension",
+  "version": "1.0.0",
+  "description": "Send browser context and developer-agent commands to the NaveenCodes AI Agent backend.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:4000/*",
+    "http://localhost:4000/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "NaveenCodes AI Agent",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
