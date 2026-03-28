@@ -1,62 +1,89 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f7efe5"/>
-      <stop offset="55%" stop-color="#efe1cf"/>
-      <stop offset="100%" stop-color="#e4c7a7"/>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#11151c"/>
+      <stop offset="52%" stop-color="#1d2230"/>
+      <stop offset="100%" stop-color="#282130"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#fffdf9" stop-opacity="0.92"/>
-      <stop offset="100%" stop-color="#fff7ef" stop-opacity="0.72"/>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffb36b"/>
+      <stop offset="100%" stop-color="#ff6f61"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#cf5e2d"/>
-      <stop offset="100%" stop-color="#8d3a1f"/>
+    <linearGradient id="panelStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.08"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="28" stdDeviation="32" flood-color="#7d4b27" flood-opacity="0.18"/>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="24" flood-color="#ff885f" flood-opacity="0.28"/>
+    </filter>
+    <filter id="panelShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="32" stdDeviation="34" flood-color="#020305" flood-opacity="0.35"/>
     </filter>
   </defs>
 
-  <rect width="1400" height="560" fill="url(#bg)"/>
-  <circle cx="1170" cy="96" r="160" fill="#ffffff" fill-opacity="0.28"/>
-  <circle cx="1280" cy="440" r="220" fill="#cb6b3b" fill-opacity="0.14"/>
-  <circle cx="182" cy="474" r="124" fill="#ffffff" fill-opacity="0.26"/>
+  <rect width="1400" height="560" fill="url(#night)"/>
+  <circle cx="236" cy="92" r="170" fill="#ff9966" fill-opacity="0.10"/>
+  <circle cx="1250" cy="126" r="140" fill="#6fc2ff" fill-opacity="0.10"/>
+  <circle cx="1130" cy="466" r="220" fill="#ff6f61" fill-opacity="0.08"/>
 
-  <g filter="url(#shadow)">
-    <rect x="56" y="54" width="1288" height="452" rx="34" fill="url(#panel)" stroke="#d5bca4"/>
+  <g opacity="0.18">
+    <path d="M0 114 H1400" stroke="#ffffff"/>
+    <path d="M0 202 H1400" stroke="#ffffff"/>
+    <path d="M0 290 H1400" stroke="#ffffff"/>
+    <path d="M0 378 H1400" stroke="#ffffff"/>
+    <path d="M0 466 H1400" stroke="#ffffff"/>
+    <path d="M124 0 V560" stroke="#ffffff"/>
+    <path d="M298 0 V560" stroke="#ffffff"/>
+    <path d="M472 0 V560" stroke="#ffffff"/>
+    <path d="M646 0 V560" stroke="#ffffff"/>
+    <path d="M820 0 V560" stroke="#ffffff"/>
+    <path d="M994 0 V560" stroke="#ffffff"/>
+    <path d="M1168 0 V560" stroke="#ffffff"/>
   </g>
 
-  <rect x="104" y="108" width="192" height="36" rx="18" fill="#fff4ea" stroke="#d8b395"/>
-  <text x="132" y="132" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2" fill="#9a4b28">AUTONOMOUS DEV AGENT</text>
+  <g filter="url(#panelShadow)">
+    <rect x="52" y="48" width="1296" height="464" rx="36" fill="#0f131a" fill-opacity="0.58" stroke="url(#panelStroke)"/>
+  </g>
 
-  <text x="104" y="222" font-family="Georgia, serif" font-size="74" font-weight="700" fill="#231b14">NaveenCodes</text>
-  <text x="104" y="304" font-family="Georgia, serif" font-size="74" font-weight="700" fill="#231b14">Command Center</text>
-  <text x="104" y="360" font-family="Arial, sans-serif" font-size="28" fill="#6e5642">Build, analyze, fix, test, and automate the web with</text>
-  <text x="104" y="398" font-family="Arial, sans-serif" font-size="28" fill="#6e5642">multi-provider AI, CDP actions, BYOK security, and browser extensions.</text>
+  <g filter="url(#softGlow)">
+    <rect x="100" y="100" width="178" height="40" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="130" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4" fill="#ffd39f">AI DEV ORCHESTRATION</text>
+  </g>
 
-  <rect x="104" y="438" width="248" height="18" rx="9" fill="url(#accent)"/>
+  <text x="98" y="224" font-family="Arial, sans-serif" font-size="86" font-weight="800" fill="#ffffff">NaveenCodes</text>
+  <text x="98" y="314" font-family="Arial, sans-serif" font-size="86" font-weight="800" fill="#ffffff">Command Center</text>
+  <text x="102" y="372" font-family="Arial, sans-serif" font-size="30" fill="#d5d9e3">Autonomous web engineering with provider switching,</text>
+  <text x="102" y="412" font-family="Arial, sans-serif" font-size="30" fill="#d5d9e3">browser actions, secure BYOK vaults, and extension-based control.</text>
 
-  <g transform="translate(860 118)">
-    <rect x="0" y="0" width="388" height="284" rx="28" fill="#fffaf4" stroke="#dfc5ac"/>
-    <rect x="26" y="24" width="336" height="46" rx="14" fill="#f4e6d7"/>
-    <circle cx="52" cy="47" r="7" fill="#cf5e2d"/>
-    <circle cx="76" cy="47" r="7" fill="#dfab53"/>
-    <circle cx="100" cy="47" r="7" fill="#7f9c58"/>
-    <text x="126" y="54" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#5f4838">Execution Pipeline</text>
+  <rect x="102" y="448" width="310" height="14" rx="7" fill="url(#glow)"/>
 
-    <rect x="28" y="92" width="152" height="54" rx="16" fill="#fff" stroke="#e4cfba"/>
-    <rect x="208" y="92" width="152" height="54" rx="16" fill="#fff" stroke="#e4cfba"/>
-    <rect x="28" y="174" width="152" height="54" rx="16" fill="#fff" stroke="#e4cfba"/>
-    <rect x="208" y="174" width="152" height="54" rx="16" fill="#fff" stroke="#e4cfba"/>
+  <g transform="translate(846 96)">
+    <rect x="0" y="0" width="444" height="324" rx="28" fill="#151b24" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="24" y="22" width="396" height="52" rx="16" fill="#0c1016" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="52" cy="48" r="7" fill="#ff6f61"/>
+    <circle cx="76" cy="48" r="7" fill="#ffb36b"/>
+    <circle cx="100" cy="48" r="7" fill="#62d393"/>
+    <text x="128" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#f6f8fb">Live Agent Loop</text>
 
-    <text x="48" y="124" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d241d">AI Routing</text>
-    <text x="228" y="124" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d241d">CDP Actions</text>
-    <text x="48" y="206" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d241d">BYOK Vault</text>
-    <text x="228" y="206" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2d241d">Extensions</text>
+    <rect x="28" y="96" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="242" y="96" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="28" y="196" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="242" y="196" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
 
-    <path d="M180 118 H208" stroke="#cb6b3b" stroke-width="4" stroke-linecap="round"/>
-    <path d="M104 146 V174" stroke="#cb6b3b" stroke-width="4" stroke-linecap="round"/>
-    <path d="M284 146 V174" stroke="#cb6b3b" stroke-width="4" stroke-linecap="round"/>
+    <text x="50" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffbf86">DECIDE</text>
+    <text x="50" y="146" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Intent Routing</text>
+
+    <text x="264" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8fd8ff">ACT</text>
+    <text x="264" y="146" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">CDP Actions</text>
+
+    <text x="50" y="226" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffc876">VERIFY</text>
+    <text x="50" y="246" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Logs + Tests</text>
+
+    <text x="264" y="226" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8cf0b1">EXTEND</text>
+    <text x="264" y="246" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Extensions</text>
+
+    <path d="M202 130 H242" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M115 164 V196" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M328 164 V196" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
   </g>
 </svg>
