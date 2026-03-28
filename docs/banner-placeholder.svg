@@ -50,40 +50,40 @@
     <text x="130" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4" fill="#ffd39f">AI DEV ORCHESTRATION</text>
   </g>
 
-  <text x="98" y="224" font-family="Arial, sans-serif" font-size="86" font-weight="800" fill="#ffffff">NaveenCodes</text>
-  <text x="98" y="314" font-family="Arial, sans-serif" font-size="86" font-weight="800" fill="#ffffff">Command Center</text>
+  <text x="98" y="218" font-family="Arial, sans-serif" font-size="80" font-weight="800" fill="#ffffff">NaveenCodes</text>
+  <text x="98" y="302" font-family="Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">Command Center</text>
   <text x="102" y="372" font-family="Arial, sans-serif" font-size="30" fill="#d5d9e3">Autonomous web engineering with provider switching,</text>
   <text x="102" y="412" font-family="Arial, sans-serif" font-size="30" fill="#d5d9e3">browser actions, secure BYOK vaults, and extension-based control.</text>
 
   <rect x="102" y="448" width="310" height="14" rx="7" fill="url(#glow)"/>
 
-  <g transform="translate(846 96)">
-    <rect x="0" y="0" width="444" height="324" rx="28" fill="#151b24" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="24" y="22" width="396" height="52" rx="16" fill="#0c1016" stroke="#ffffff" stroke-opacity="0.08"/>
+  <g transform="translate(914 96)">
+    <rect x="0" y="0" width="376" height="324" rx="28" fill="#151b24" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="24" y="22" width="328" height="52" rx="16" fill="#0c1016" stroke="#ffffff" stroke-opacity="0.08"/>
     <circle cx="52" cy="48" r="7" fill="#ff6f61"/>
     <circle cx="76" cy="48" r="7" fill="#ffb36b"/>
     <circle cx="100" cy="48" r="7" fill="#62d393"/>
     <text x="128" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#f6f8fb">Live Agent Loop</text>
 
-    <rect x="28" y="96" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
-    <rect x="242" y="96" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
-    <rect x="28" y="196" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
-    <rect x="242" y="196" width="174" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="28" y="96" width="144" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="204" y="96" width="144" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="28" y="196" width="144" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
+    <rect x="204" y="196" width="144" height="68" rx="18" fill="#1d2531" stroke="#ffffff" stroke-opacity="0.08"/>
 
     <text x="50" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffbf86">DECIDE</text>
     <text x="50" y="146" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Intent Routing</text>
 
-    <text x="264" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8fd8ff">ACT</text>
-    <text x="264" y="146" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">CDP Actions</text>
+    <text x="224" y="126" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8fd8ff">ACT</text>
+    <text x="224" y="146" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">CDP Actions</text>
 
     <text x="50" y="226" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffc876">VERIFY</text>
     <text x="50" y="246" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Logs + Tests</text>
 
-    <text x="264" y="226" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8cf0b1">EXTEND</text>
-    <text x="264" y="246" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Extensions</text>
+    <text x="224" y="226" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8cf0b1">EXTEND</text>
+    <text x="224" y="246" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Extensions</text>
 
-    <path d="M202 130 H242" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
-    <path d="M115 164 V196" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
-    <path d="M328 164 V196" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M172 130 H204" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M100 164 V196" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M276 164 V196" stroke="url(#glow)" stroke-width="4" stroke-linecap="round"/>
   </g>
 </svg>
