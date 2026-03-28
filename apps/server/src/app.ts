@@ -8,6 +8,7 @@ import { chatRouter } from "./routes/chat.js";
 import { analyzeRouter } from "./routes/analyze.js";
 import { projectsRouter } from "./routes/projects.js";
 import { actionsRouter, browserRouter } from "./routes/browser.js";
+import { workspaceRouter } from "./routes/workspace.js";
 import { errorHandler } from "./middleware/error-handler.js";
 import { serverConfig } from "./config.js";
 
@@ -35,6 +36,7 @@ export const createApp = async () => {
 
   app.use("/api/auth", authRouter);
   app.use("/api/chat", chatRouter);
+  app.use("/api/workspace", workspaceRouter);
   app.use("/api/analyze", analyzeRouter);
   app.use("/api/actions", actionsRouter);
   app.use("/api/projects", projectsRouter);

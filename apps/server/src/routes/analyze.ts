@@ -15,7 +15,9 @@ const analyzeSchema = z.object({
   provider: z.enum(["openai", "gemini", "claude"]).optional(),
   includeAiSummary: z.boolean().default(false),
   autoExecute: z.boolean().default(false),
-  maxIterations: z.number().int().min(1).max(5).default(2)
+  maxIterations: z.number().int().min(1).max(5).default(2),
+  workspacePath: z.string().min(1).optional(),
+  confirmWorkspace: z.boolean().default(false)
 });
 
 router.post("/", requireAuth, async (request: AuthenticatedRequest, response, next) => {
@@ -34,11 +36,15 @@ router.post("/", requireAuth, async (request: AuthenticatedRequest, response, ne
       url: payload.url,
       provider: payload.provider,
       maxIterations: payload.autoExecute ? payload.maxIterations : 1,
-      includeAiSummary: payload.includeAiSummary || payload.autoExecute
+      includeAiSummary: payload.includeAiSummary || payload.autoExecute,
+      workspacePath: payload.workspacePath,
+      confirmWorkspace: payload.confirmWorkspace
     });
 
     response.json({
       command: payload.command,
+      parsedCommand: analysis.parsedCommand,
+      routedAction: analysis.routedAction,
       url: payload.url ?? analysis.decision.targetUrl,
       intent: analysis.decision,
       recommendedModules: [

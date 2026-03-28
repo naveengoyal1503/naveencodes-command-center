@@ -8,15 +8,21 @@ const { AuthService } = await import("../apps/server/src/services/auth-service.j
 const { KeyVaultService } = await import("../apps/server/src/services/key-vault-service.js");
 const { DecisionEngine } = await import("../apps/server/src/intelligence/decision-engine.js");
 const { CommandInterpreter } = await import("../apps/server/src/intelligence/command-interpreter.js");
+const { parseCommand } = await import("../apps/server/src/intelligence/command-parser.js");
+const { routeAction } = await import("../apps/server/src/intelligence/action-router.js");
 const { ProjectService } = await import("../apps/server/src/services/project-service.js");
+const { WorkspaceManager } = await import("../apps/server/src/services/workspace-manager.js");
 
 const authService = new AuthService();
 const vaultService = new KeyVaultService();
 const decisionEngine = new DecisionEngine();
 const commandInterpreter = new CommandInterpreter();
 const projectService = new ProjectService();
+const workspaceManager = new WorkspaceManager();
+const workspacePath = path.resolve(process.cwd(), "..", "naveencodes-ai-agent-smoke");
 
 await fs.rm(path.resolve(process.cwd(), "data/test-smoke"), { recursive: true, force: true });
+await fs.rm(workspacePath, { recursive: true, force: true });
 
 const user = await authService.register({
   email: "smoke@example.com",
@@ -31,8 +37,11 @@ const login = await authService.login({
 
 await vaultService.setProviderKey(user.id, "openai", "sk-test-1234567890");
 await vaultService.setProviderKey(user.id, "claude", "claude-test-1234567890");
+const workspaceSession = await workspaceManager.setWorkspace(user.id, workspacePath, true);
 const decrypted = await vaultService.getProviderKey(user.id, "openai");
 const claudeKey = await vaultService.getProviderKey(user.id, "claude");
+const parsed = parseCommand("open google.com");
+const routed = routeAction("check this site https://example.com");
 const decision = decisionEngine.decide({
   command: "build a SaaS dashboard and fix login flow",
   url: "https://example.com"
@@ -52,15 +61,22 @@ const project = await projectService.create({
   name: "Smoke Project",
   prompt: "Create a demo project for smoke testing",
   type: "saas",
-  framework: "vanilla"
+  framework: "vanilla",
+  workspacePath: workspaceSession.currentWorkspace
 });
 
 assert.ok(login.token);
 assert.equal(decrypted, "sk-test-1234567890");
 assert.equal(claudeKey, "claude-test-1234567890");
+assert.equal(workspaceSession.currentWorkspace, path.resolve(workspacePath));
+assert.equal(parsed.url, "https://google.com");
+assert.equal(routed.decision.route, "actions");
+assert.equal(routed.responseStrategy, "browser");
 assert.equal(decision.intent, "build");
 assert.equal(decision.route, "projects");
 assert.ok(actions.some((action) => action.type === "screenshot"));
+assert.ok(actions.some((action) => action.type === "extractHtml"));
 assert.equal(project.slug, "smoke-project");
+assert.equal(project.path, path.join(workspaceSession.currentWorkspace, "smoke-project"));
 
 console.log("Smoke test passed");

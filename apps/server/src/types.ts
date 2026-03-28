@@ -1,7 +1,7 @@
 import type { Request } from "express";
 
 export type SupportedAiProvider = "openai" | "gemini" | "claude";
-export type AgentIntent = "build" | "analyze" | "fix" | "test";
+export type AgentIntent = "open" | "build" | "analyze" | "fix" | "test";
 
 export interface AgentDecision {
   intent: AgentIntent;
@@ -12,6 +12,38 @@ export interface AgentDecision {
   useAi: boolean;
   autoLoop: boolean;
   targetUrl?: string | null;
+  fallbackMode?: "browser-analyze" | "ai-only" | "ask-for-url";
+}
+
+export interface ParsedCommand {
+  input: string;
+  normalizedInput: string;
+  intent: AgentIntent;
+  secondaryIntents: AgentIntent[];
+  confidence: number;
+  url: string | null;
+  hasUrl: boolean;
+  isAmbiguous: boolean;
+}
+
+export interface RoutedAction {
+  parsed: ParsedCommand;
+  decision: AgentDecision;
+  responseStrategy: "browser" | "ai" | "hybrid" | "ask-for-url";
+}
+
+export interface WorkspaceSession {
+  userId: string;
+  currentWorkspace: string;
+  confirmedAt?: string;
+  updatedAt: string;
+}
+
+export interface WorkspaceResolution {
+  requiresWorkspace: boolean;
+  requiresConfirmation: boolean;
+  workspacePath: string | null;
+  message?: string;
 }
 
 export interface UserRecord {

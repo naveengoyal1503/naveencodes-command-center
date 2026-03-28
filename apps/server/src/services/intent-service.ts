@@ -1,6 +1,7 @@
 import type { AgentIntent } from "../types.js";
 
 const keywords: Record<AgentIntent, string[]> = {
+  open: ["open", "visit", "launch", "go to"],
   build: ["build", "create", "generate", "scaffold", "develop"],
   analyze: ["analyze", "inspect", "audit", "review", "check"],
   fix: ["fix", "debug", "repair", "resolve", "broken", "error"],

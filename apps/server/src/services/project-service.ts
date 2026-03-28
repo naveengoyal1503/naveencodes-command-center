@@ -1,13 +1,19 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
-import { serverConfig } from "../config.js";
 import type { ProjectRecord } from "../types.js";
+import { WorkspaceManager } from "./workspace-manager.js";
 
 export class ProjectService {
-  async list(ownerId: string) {
-    await fs.mkdir(serverConfig.paths.projectsRoot, { recursive: true });
-    const entries = await fs.readdir(serverConfig.paths.projectsRoot, { withFileTypes: true });
+  constructor(private readonly workspaceManager = new WorkspaceManager()) {}
+
+  async list(ownerId: string, workspacePath?: string | null) {
+    if (!workspacePath) {
+      return [];
+    }
+
+    await this.workspaceManager.ensureWorkspaceExists(workspacePath);
+    const entries = await fs.readdir(workspacePath, { withFileTypes: true });
     const records: ProjectRecord[] = [];
 
     for (const entry of entries) {
@@ -15,7 +21,7 @@ export class ProjectService {
         continue;
       }
 
-      const metaPath = path.join(serverConfig.paths.projectsRoot, entry.name, "project.json");
+      const metaPath = path.join(workspacePath, entry.name, "project.json");
       try {
         const raw = await fs.readFile(metaPath, "utf8");
         const project = JSON.parse(raw) as ProjectRecord;
@@ -36,10 +42,15 @@ export class ProjectService {
     prompt: string;
     type: ProjectRecord["type"];
     framework: ProjectRecord["framework"];
+    workspacePath: string;
   }) {
     const slug = input.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-    const projectRoot = path.join(serverConfig.paths.projectsRoot, slug);
+    const projectRoot = await this.workspaceManager.ensureInsideWorkspace(input.workspacePath, path.join(input.workspacePath, slug));
     await fs.mkdir(projectRoot, { recursive: true });
+    const htmlDir = await this.workspaceManager.ensureInsideWorkspace(projectRoot, path.join(projectRoot, "html"));
+    const cssDir = await this.workspaceManager.ensureInsideWorkspace(projectRoot, path.join(projectRoot, "css"));
+    const jsDir = await this.workspaceManager.ensureInsideWorkspace(projectRoot, path.join(projectRoot, "js"));
+    await Promise.all([fs.mkdir(htmlDir, { recursive: true }), fs.mkdir(cssDir, { recursive: true }), fs.mkdir(jsDir, { recursive: true })]);
 
     const project: ProjectRecord = {
       id: crypto.randomUUID(),
@@ -54,9 +65,9 @@ export class ProjectService {
     };
 
     await fs.writeFile(path.join(projectRoot, "project.json"), `${JSON.stringify(project, null, 2)}\n`);
-    await fs.writeFile(path.join(projectRoot, "index.html"), this.renderHtml(project));
-    await fs.writeFile(path.join(projectRoot, "styles.css"), this.renderCss());
-    await fs.writeFile(path.join(projectRoot, "app.js"), this.renderJs(project));
+    await fs.writeFile(path.join(htmlDir, "index.html"), this.renderHtml(project));
+    await fs.writeFile(path.join(cssDir, "styles.css"), this.renderCss());
+    await fs.writeFile(path.join(jsDir, "app.js"), this.renderJs(project));
     return project;
   }
 
@@ -67,7 +78,7 @@ export class ProjectService {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${project.name}</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <main class="shell">
@@ -80,7 +91,7 @@ export class ProjectService {
       </div>
       <button id="launch">Launch Workflow</button>
     </main>
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="../js/app.js"></script>
   </body>
 </html>
 `;

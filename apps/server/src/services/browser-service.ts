@@ -7,6 +7,7 @@ export class BrowserService {
   private readonly logService = new LogService();
 
   async execute(actions: BrowserAction[]) {
+    console.log("Executing action");
     const executor = new BrowserCommandExecutor({
       headless: serverConfig.chrome.headless,
       port: serverConfig.chrome.port,

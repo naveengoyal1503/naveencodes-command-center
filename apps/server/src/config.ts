@@ -45,6 +45,7 @@ export const serverConfig = {
     secureRoot: path.join(dataRoot, "secure"),
     usersFile: path.join(dataRoot, "secure", "users.json"),
     keysFile: path.join(dataRoot, "secure", "provider-keys.json"),
+    workspacesFile: path.join(dataRoot, "secure", "workspaces.json"),
     projectsRoot: path.join(dataRoot, "projects"),
     browserArtifacts: path.join(dataRoot, "browser-artifacts"),
     logsRoot: path.join(dataRoot, "logs"),
